@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>
+      Home Page
+    </title>
+    <body>
+      <h1>{{pageTitle}}</h1>
+      <p>{{welcomeMessage}}</p>
+      <p>My name is {{name}}. I am {{age}} years old and likes</p>
+
+        {{#each likes}}
+        <ul>
+          <li>{{.}}</li>
+        </ul>
+        {{/each}}
+
+    </body>
+  </head>
+<footer>
+  Copyright {{currentYear}}: Dasa Raghavan
+</footer>
+</html>

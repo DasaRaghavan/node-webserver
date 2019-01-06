@@ -1,17 +1,21 @@
 const express = require('express');
+const hbs= require('hbs');
 const app = express();
 
 const port = process.env.PORT || 3000;
+
+app.set('view engine', 'hbs');
 
 app.use(express.static(__dirname+'/public'));
 
 app.get('/', (req, res) => {
   // res.send('<h1>Hello Express</h1>')
-  res.send({
+  res.render('home.hbs', {
+    welcomeMessage:' Welcome!',
     name: 'Dasa',
     age: 51,
     likes: ['running', 'travel' ]
-  })
+  });
 });
 
 app.get('/bad', (req, res) => {
@@ -21,7 +25,10 @@ app.get('/bad', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-  res.send('<h1>About Page</h1>');
+  res.render('about.hbs', {
+    pageTitle: 'About Page',
+    currentYear: new Date().getFullYear()
+  });
 });
 
 app.listen(port, () => {
